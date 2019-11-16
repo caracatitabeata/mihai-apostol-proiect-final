@@ -1,0 +1,62 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'gs-spring-boot'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile("junit:junit")
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+    compile group: 'org.springframework', name: 'spring-jdbc', version: '5.2.0.RELEASE'
+
+    // https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api
+    compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+
+    compileOnly 'org.projectlombok:lombok:1.16.18'
+    annotationProcessor "org.projectlombok:lombok:1.16.18"
+
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.18'
+
+    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf
+    compile group: 'org.thymeleaf', name: 'thymeleaf', version: '3.0.11.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5
+    compile group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.0.11.RELEASE'
+
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+    testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-validator
+    compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.0.Final'
+
+//    // https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa
+//    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.2.1.RELEASE'
+
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.2.1.RELEASE'
+
+}

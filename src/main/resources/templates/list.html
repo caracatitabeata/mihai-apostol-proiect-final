@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p> Add a new client <a th:href="@{clients/loginPage}" >here</a></p>
+
+<table id="info-table" align="center" border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Client Id</th>
+        <th>Phone Number</th>
+        <th>Delete option</th>
+    </tr>
+
+    <tr th:each="client : ${clients}">
+        <td th:text="${client.id}">Id</td>
+        <td th:text="${client.name}">Name</td>
+        <td th:text="${client.clientId}">Client Id</td>
+        <td th:text="${client.phoneNumber}">Phone Number</td>
+<!--        <td>-->
+<!--            <a th:href="@{'/clients/client/' + ${user.id}}">-->
+<!--                <span>Delete</span>-->
+<!--            </a>-->
+<!--        </td>-->
+        <td>
+        <form th:action="@{/clients/client/{id}(id=*{id})}" th:object="${client}" method="post">
+            <input type="hidden" th:field="${client.id}"/>
+            <button type="submit" onClick="return confirm('Sure?')"> Delete </button>
+        </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
