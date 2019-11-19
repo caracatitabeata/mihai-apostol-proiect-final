@@ -1,6 +1,6 @@
-package org.mihaiaposotlproiectfinal.repositories;
+package org.mihaiaposotlproiectfinal.jdbcThymeleaf.repositories;
 
-import org.mihaiaposotlproiectfinal.entities.Client;
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.entities.Client;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

@@ -1,12 +1,15 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Client Form</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{css/styles.css}" href="../../static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 <h1>Form</h1>
+
 <form action="#" th:action="@{/clients/submit}" th:object="${client}" method="post">
     <p>Name: <input type="text" th:field="*{clientName}" /></p>
     <p>Phone number: <input type="text" th:field="*{phoneNumber}" /></p>

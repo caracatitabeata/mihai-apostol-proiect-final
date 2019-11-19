@@ -1,8 +1,8 @@
-package org.mihaiaposotlproiectfinal.service;
+package org.mihaiaposotlproiectfinal.jdbcThymeleaf.service;
 
 import lombok.Data;
-import org.mihaiaposotlproiectfinal.entities.Client;
-import org.mihaiaposotlproiectfinal.repositories.ClientDao;
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.entities.Client;
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.repositories.ClientDao;
 
 @Data
 public class ClientService {

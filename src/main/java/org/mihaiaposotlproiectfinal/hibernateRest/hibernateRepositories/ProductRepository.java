@@ -1,6 +1,6 @@
-package org.mihaiaposotlproiectfinal.hibernateRepositories;
+package org.mihaiaposotlproiectfinal.hibernateRest.hibernateRepositories;
 
-import org.mihaiaposotlproiectfinal.entities.HibernateProduct;
+import org.mihaiaposotlproiectfinal.hibernateRest.hibernateEntities.HibernateProduct;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

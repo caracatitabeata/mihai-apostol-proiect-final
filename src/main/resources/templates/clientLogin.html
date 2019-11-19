@@ -8,8 +8,8 @@
 
 <p th:utext="#{home.welcome(${clientName})}">Welcome</p>
 <p th:text="'You are logged in, ' + ${clientName} + '!'"> Hello </p>
-<p>Go back to the <a th:href= "@{clients/clientList}">client List</a> </p>
-<!--this is a getter -->
+<p>Go back to the <a th:href= "@{clientList}">client list</a> </p>
+<!--this is a getter.... so no need to specify the @RequestMa parameter  -->
 
 </body>
 </html>

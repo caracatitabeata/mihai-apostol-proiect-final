@@ -1,4 +1,4 @@
-package org.mihaiaposotlproiectfinal.entities;
+package org.mihaiaposotlproiectfinal.hibernateRest.hibernateEntities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

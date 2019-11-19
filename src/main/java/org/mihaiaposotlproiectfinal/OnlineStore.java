@@ -1,8 +1,8 @@
 package org.mihaiaposotlproiectfinal;
 
-import org.mihaiaposotlproiectfinal.repositories.ClientDao;
-import org.mihaiaposotlproiectfinal.repositories.ClientDaoImpl;
-import org.mihaiaposotlproiectfinal.service.ClientService;
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.repositories.ClientDao;
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.repositories.ClientDaoImpl;
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.service.ClientService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

@@ -14,7 +14,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 @Configuration
-public class WebConfig{
+public class ThymeleafWebConfig {
 
     @Bean
     @Description("Thymeleaf template resolver serving to the client HTML")

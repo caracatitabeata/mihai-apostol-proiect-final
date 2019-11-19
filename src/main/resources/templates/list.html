@@ -18,9 +18,9 @@
     </tr>
 
     <tr th:each="client : ${clients}">
-        <td th:text="${client.id}">Id</td>
-        <td th:text="${client.name}">Name</td>
-        <td th:text="${client.clientId}">Client Id</td>
+        <td th:text="${client.password}">Password</td>
+        <td th:text="${client.clientName}">Name</td>
+        <td th:text="${client.emailAddress}">Email address</td>
         <td th:text="${client.phoneNumber}">Phone Number</td>
 <!--        <td>-->
 <!--            <a th:href="@{'/clients/client/' + ${user.id}}">-->
@@ -28,8 +28,8 @@
 <!--            </a>-->
 <!--        </td>-->
         <td>
-        <form th:action="@{/clients/client/{id}(id=*{id})}" th:object="${client}" method="post">
-            <input type="hidden" th:field="${client.id}"/>
+        <form th:action="@{/clients/client/{id}(id=*{clientId})}" th:object="${client}" method="post">
+            <input type="hidden" th:field="${client.clientId}"/>
             <button type="submit" onClick="return confirm('Sure?')"> Delete </button>
         </form>
         </td>

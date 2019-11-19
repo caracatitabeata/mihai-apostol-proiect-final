@@ -1,16 +1,15 @@
-package org.mihaiaposotlproiectfinal.controller;
+package org.mihaiaposotlproiectfinal.jdbcThymeleaf.controller;
 
 
-import org.mihaiaposotlproiectfinal.entities.Client;
-import org.mihaiaposotlproiectfinal.service.ClientService;
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.entities.Client;
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Collection;
 
-@Controller
+@RestController
 @RequestMapping("/clients")
 public class ClientController {
 
@@ -19,10 +18,15 @@ public class ClientController {
 
     @GetMapping(value = "/clientList")
     public String getClients(Model model) {
-            model.addAttribute("clients", clientService.getClientDao().getAllClients());
-            model.addAttribute("client", new Client());
-            return "list";
-        }
+        model.addAttribute("clients", clientService.getClientDao().getAllClients());
+        model.addAttribute("client", new Client());
+        return "list";
+    }
+
+    @GetMapping(value ="/clientListJson")
+    public Collection<Client> getWrecked(){
+        return clientService.getClientDao().getClientProduct();
+    }
 
 //        @PutMapping(value = "/client")
 //        public Client updateClientById(@RequestBody Client client) {

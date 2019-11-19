@@ -1,9 +1,9 @@
-package org.mihaiaposotlproiectfinal.controller;
+package org.mihaiaposotlproiectfinal.hibernateRest.hibernateController;
 
 
-import org.mihaiaposotlproiectfinal.entities.HibernateProduct;
-import org.mihaiaposotlproiectfinal.hibernateRepositories.ClientRepository;
-import org.mihaiaposotlproiectfinal.hibernateRepositories.ProductRepository;
+import org.mihaiaposotlproiectfinal.hibernateRest.hibernateEntities.HibernateProduct;
+import org.mihaiaposotlproiectfinal.hibernateRest.hibernateRepositories.ClientRepository;
+import org.mihaiaposotlproiectfinal.hibernateRest.hibernateRepositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
