@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "productsHibernate")
+@Table(name = "productshibernate")
 @Data
 public class HibernateProduct {
 
@@ -32,11 +32,19 @@ public class HibernateProduct {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false) //specifies the relationship - many products, one client
     @JoinColumn(name = "client_id", nullable = false) //declares the foreign key column - every product
-    //has to have a client associated with it (he can be the same)
+    //has to have a client associated with it. The name of the clients table column HAS to be id; in SQL,
+    //this should column should be named client_id.
     @OnDelete(action = OnDeleteAction.CASCADE) //deleting the parent hibernateClient will delete
     // all child products associated with it
-    @JsonIgnore //nu trimite JSON-ul trimis din Postman
+    @JsonIgnore //nu trimite field-ul odată cu JSON-ul trimis din Postman. În controller, ca să creăm un produs
+    //căutăm clienul în funcție de id și setăm clientul produsului în funcție de acel id care identifică clientul
     private HibernateClient client;
 
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "transaction_id", nullable = true)
+    @OnDelete(action = OnDeleteAction.CASCADE) //ștergi o tranzacție, automat ștergi și produsele
+    @JsonIgnore
+    private HibernateTransaction transaction;
 
 }

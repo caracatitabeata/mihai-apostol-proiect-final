@@ -6,27 +6,23 @@
 </head>
 <body>
 
-<p> Add a new client <a th:href="@{clients/loginPage}" >here</a></p>
+<p> Add a new client <a th:href="@{loginPage}" >here.</a></p>
 
 <table id="info-table" align="center" border="1">
     <tr>
-        <th>Id</th>
         <th>Name</th>
-        <th>Client Id</th>
+        <th>Email address</th>
         <th>Phone Number</th>
+        <th>Password</th>
         <th>Delete option</th>
     </tr>
 
     <tr th:each="client : ${clients}">
-        <td th:text="${client.password}">Password</td>
+
         <td th:text="${client.clientName}">Name</td>
         <td th:text="${client.emailAddress}">Email address</td>
         <td th:text="${client.phoneNumber}">Phone Number</td>
-<!--        <td>-->
-<!--            <a th:href="@{'/clients/client/' + ${user.id}}">-->
-<!--                <span>Delete</span>-->
-<!--            </a>-->
-<!--        </td>-->
+        <td th:text="${client.password}">Password</td>
         <td>
         <form th:action="@{/clients/client/{id}(id=*{clientId})}" th:object="${client}" method="post">
             <input type="hidden" th:field="${client.clientId}"/>
@@ -34,6 +30,7 @@
         </form>
         </td>
     </tr>
+
 </table>
 
 </body>

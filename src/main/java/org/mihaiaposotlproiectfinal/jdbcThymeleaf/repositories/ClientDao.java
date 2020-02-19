@@ -12,7 +12,7 @@ public interface ClientDao {
     void updateClientPhoneNumber(Client client);
     void insertClient(Client client);
     void deleteClientById(Long id);
-    Collection<Client> getClientProduct();
+
     Client findById(Long id);
 
 }

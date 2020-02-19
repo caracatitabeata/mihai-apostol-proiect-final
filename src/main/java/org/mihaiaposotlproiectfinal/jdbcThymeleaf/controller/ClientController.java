@@ -1,15 +1,19 @@
 package org.mihaiaposotlproiectfinal.jdbcThymeleaf.controller;
 
 
+import lombok.AllArgsConstructor;
 import org.mihaiaposotlproiectfinal.jdbcThymeleaf.entities.Client;
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.entities.Product;
 import org.mihaiaposotlproiectfinal.jdbcThymeleaf.service.ClientService;
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.service.ClientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-
-@RestController
+//@RestController
+@AllArgsConstructor
+@Controller
 @RequestMapping("/clients")
 public class ClientController {
 
@@ -18,25 +22,24 @@ public class ClientController {
 
     @GetMapping(value = "/clientList")
     public String getClients(Model model) {
-        model.addAttribute("clients", clientService.getClientDao().getAllClients());
+        model.addAttribute("clients", clientService.getAllClients());
         model.addAttribute("client", new Client());
         return "list";
     }
 
-    @GetMapping(value ="/clientListJson")
-    public Collection<Client> getWrecked(){
-        return clientService.getClientDao().getClientProduct();
-    }
+    @GetMapping(value ="/clientsProducts")
+    public String getWrecked(Model model){
 
-//        @PutMapping(value = "/client")
-//        public Client updateClientById(@RequestBody Client client) {
-//        clientService.getClientDao().updateClientPhoneNumber(client);
-//        return client;
-//        }
+        model.addAttribute("clients", clientService.getClientsAndProductName());
+
+        model.addAttribute("client", new Client());
+        model.addAttribute("clientProducts", new Product());
+        return "clientsProducts";
+    }
 
     @PostMapping(value = "/client/{id}")
     public String deleteClient(@PathVariable Long id) {
-        clientService.getClientDao().deleteClientById(id);
+        clientService.deleteClientById(id);
         return "redirect:/clients/clientList";
         }
 
@@ -48,13 +51,12 @@ public class ClientController {
 
     @PostMapping(value = "/submit")
     public String submitClient(@ModelAttribute Client client, Model model) {
-            try {
-                clientService.validateName(client);
-            }
-            catch (RuntimeException e){
-                return "failedLogin";
-            }
-        clientService.getClientDao().insertClient(client);
+        try {
+            clientService.insertClient(client);
+        }
+        catch (RuntimeException e){
+            return "failedLogin";
+        }
         model.addAttribute("clientName", client.getClientName());
         return "clientLogin";
     }
@@ -64,5 +66,24 @@ public class ClientController {
         model.addAttribute("client", new Client());
         return "clientForm";
     }
+
+    //Security
+//    @GetMapping("/admin")
+//    public String admin() {
+//        return "/admin";
+//    }
+//
+//    @GetMapping("/user")
+//    public String user() {
+//        return "/user";
+//    }
+//
+//    @GetMapping("/login")
+//    public String login() { return "/login"; }
+//
+//    @GetMapping("/home")
+//    public String home() {
+//        return "/home";
+//    }
 }
 

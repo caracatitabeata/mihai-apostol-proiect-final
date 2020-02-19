@@ -24,31 +24,32 @@ public class ClientDaoImpl implements ClientDao {
 
     public ClientDaoImpl(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
-        System.out.println("starting ClientDaoImpl");
     }
 
     @Override
     public List<Client> getAllClients() {
-        String Sql = "SELECT * FROM clients";
-        return namedParameterJdbcTemplate.query(Sql, new ClientMapper()); //sa mai folosesc client mapper la many to many?
+        String sql = "SELECT * FROM clients";
+        return namedParameterJdbcTemplate.query(sql, new ClientMapper()); //sa mai folosesc client mapper la many to many?
     }
 
+    @Override
     public Client findById(Long id){
         String sql = "SELECT * FROM clients WHERE clientId = :id";
-
         return namedParameterJdbcTemplate.queryForObject(sql,
                 new MapSqlParameterSource("clientId", id), new ClientMapper());
     }
 
-    public Collection<Client> getClientProduct() {
+
+    public List<Client> getClientProduct() {
         Map<Long, Client> customerMap = new HashMap<>();
         String sql = "select clients.clientId, clients.clientName from clients ";
         String sql2 = "select products.clientId, products.productId, products.productName from products";
         namedParameterJdbcTemplate.query(sql, new ClientRowCallbackHandler(customerMap));
         namedParameterJdbcTemplate.query(sql2, new ProductRowCallbackHandler(customerMap));
-        return customerMap.values();
+        return new ArrayList<>(customerMap.values());
     }
 
+    @Override
     public Collection<Client> getClientsAndProductName(){
         final Map<Long, Client> clientMap = namedParameterJdbcTemplate.query(
                 "select clients.clientId, clients.clientName, products.productName from clients "

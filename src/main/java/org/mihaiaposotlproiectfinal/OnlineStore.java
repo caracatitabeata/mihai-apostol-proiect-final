@@ -1,10 +1,14 @@
 package org.mihaiaposotlproiectfinal;
 
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.controller.ClientController;
 import org.mihaiaposotlproiectfinal.jdbcThymeleaf.repositories.ClientDao;
 import org.mihaiaposotlproiectfinal.jdbcThymeleaf.repositories.ClientDaoImpl;
 import org.mihaiaposotlproiectfinal.jdbcThymeleaf.service.ClientService;
+import org.mihaiaposotlproiectfinal.jdbcThymeleaf.service.ClientServiceImpl;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -15,17 +19,11 @@ import javax.sql.DataSource;
 
 @SpringBootApplication
 @Configuration
-//@ImportResource("classpath:spring.xml")
 public class OnlineStore {
-
-//    @Bean
-//    ClientController clientController(){
-//        return new ClientController(clientService());
-//    }
 
     @Bean
     ClientService clientService(){
-        return new ClientService(clientDaoImpl());
+        return new ClientServiceImpl(clientDaoImpl());
     }
 
     @Bean
