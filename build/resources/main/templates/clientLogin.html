@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Successful login!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<p th:utext="#{home.welcome(${clientName})}">Welcome</p>
+<p th:text="'You are logged in, ' + ${clientName} + '!'"> Hello </p>
+<p>Go back to the <a th:href= "@{clientList}">client list</a> </p>
+<!--this is a getter.... so no need to specify the @RequestMa parameter  -->
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Clients' product list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<table id="info-table" align="center" border="1">
+    <tr>
+        <th>Client name</th>
+        <th>Product name</th>
+    </tr>
+
+    <tr th:each = "client : ${clients}">
+    <td th:text="${client.clientName}">Name</td>
+    <td>
+        <table>
+        <tr th:each = "clientsProducts : ${client.products}">
+            <td th:text = "${clientsProducts.productName} ?: 'Null'">Product name</td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+</table>
+
+</body>
+</html>

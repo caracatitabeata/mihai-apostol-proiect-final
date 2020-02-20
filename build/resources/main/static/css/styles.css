@@ -1,0 +1,25 @@
+body {
+  background-color: powderblue;
+}
+h1 {
+  text-align: center;
+  color: black;
+}
+
+p {
+    color:green;
+    font-family: "Times New Roman", Times, serif;
+}
+
+input{
+  width: 100%;
+  padding: 4px 4px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+

@@ -1,0 +1,53 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+<!--       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+
+<!--       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
+<!--http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"-->
+<!--       xmlns:context="http://www.springframework.org/schema/context">-->
+
+<!--    <context:annotation-config/>-->
+
+<!--    <context:component-scan base-package="org.longmoneyoffshore.dlrtmweb"/>-->
+
+<!--    <bean id="mySqlDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/DLRTM_DB?serverTimezone=EST5EDT"/>-->
+
+<!--        <property name="username" value="DLRTM"/>-->
+<!--        <property name="password" value="fml_dlrtm"/>-->
+
+<!--        &lt;!&ndash;<property name="initialSize" value="2" />-->
+<!--        <property name="maxActive" value="5" />&ndash;&gt;-->
+<!--    </bean>-->
+
+<!--    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate" >-->
+<!--        &lt;!&ndash;<property name="dataSource" ref="dataSource"/>&ndash;&gt;-->
+<!--        <constructor-arg name="dataSource" ref="mySqlDataSource"/>-->
+<!--    </bean>-->
+
+
+<!--    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" >-->
+<!--        <property name="dataSource" ref="mySqlDataSource"/>-->
+<!--    </bean>-->
+
+
+
+<!--    &lt;!&ndash; product: controller -> service -> dao &ndash;&gt;-->
+<!--    <bean id="productDaoImpl" class="org.longmoneyoffshore.dlrtmweb.repositories.ProductDaoImpl" scope="singleton">-->
+<!--        <property name="dataSource" ref="mySqlDataSource" />-->
+<!--        <property name="namedParameterJdbcTemplate" ref="namedParameterJdbcTemplate"/>-->
+<!--        <property name="jdbcTemplate" ref="jdbcTemplate"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="productService" class="org.longmoneyoffshore.dlrtmweb.service.ProductService" scope="singleton">-->
+<!--        &lt;!&ndash;<property name="myProductDao" ref="productDaoImpl"/>&ndash;&gt;-->
+<!--        <property name="productDao" ref="productDaoImpl"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="productController" class="org.longmoneyoffshore.dlrtmweb.controller.ProductController" scope="singleton">-->
+<!--        <property name="productService" ref="productService"/>-->
+<!--    </bean>-->
+
+
+<!--</beans>-->
