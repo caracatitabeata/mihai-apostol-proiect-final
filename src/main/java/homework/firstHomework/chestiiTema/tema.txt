@@ -1,0 +1,8 @@
+La facultatea de Automatica si Calculatoare, pe fiecare din specializari
+ s-au creat fisere cu notele studentilor. Astfel, avem doua fisiere 
+ studenti-automatica.txt si studenti-calculatoare.txt. 
+Fiecare rand contine, in format CSV(comma separated values): nume, prenume, adresa de email, numarul de credite acumulate, media pe ultimul semestru
+1. Se cere listarea tuturor fisierelor din directorul facultate using walk or list
+2. As vrea sa se creeze si entitatea Student (o vom folosi si maine)
+3. Se cere citirea fisierelor, crearea entitatii student si scrierea lor in fisierul studenti.txt
+
